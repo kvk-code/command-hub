@@ -8,6 +8,27 @@ This is a **mandatory practice** for all professional communications.
 
 ---
 
+## ⚠️ CRITICAL: Subject Line Formatting
+
+**IMPORTANT RULE: Never apply HTML formatting tags (like `<b></b>`) to email subject lines as they will appear as literal text. HTML formatting should only be used in the email body.**
+
+### Why This Matters
+
+- Email subject lines are plain text only
+- HTML tags in subject lines will display as literal characters: `<b>Urgent Request</b>` instead of **Urgent Request**
+- This makes your emails appear unprofessional and reduces credibility
+- Subject lines should be concise and clear without any formatting markup
+
+### Correct Approach
+
+✅ **Subject Line (Plain Text):** `Q1 Budget Review - Action Required`
+
+✅ **Email Body (With HTML Bolding):** `I need your input on the Q1 budget by <b>Friday, February 28th</b>.`
+
+❌ **WRONG:** `<b>Q1 Budget Review - Action Required</b>` (in subject line)
+
+---
+
 ## Implementation Guidelines
 
 ### 1. Use HTML Bold Tags for Compatibility
@@ -170,6 +191,9 @@ Before sending, scan your email quickly:
 
 ## Common Mistakes to Avoid
 
+❌ **Using HTML formatting in subject lines**: `<b>Urgent Request</b>` (displays as literal text)
+✅ **Plain text subject lines only**: `Urgent Request`
+
 ❌ **Bolding single common words**: `I need this by <b>Friday</b>`
 ✅ **Bold the complete context**: `I need this by <b>Friday at 5 PM EST</b>`
 
@@ -199,5 +223,5 @@ Professional emails compete for attention in crowded inboxes. Strategic HTML bol
 
 ---
 
-*Last updated: February 20, 2026*
+*Last updated: February 23, 2026*
 *This is a mandatory guideline for all professional communications.*
