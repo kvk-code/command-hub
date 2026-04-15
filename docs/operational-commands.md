@@ -21,3 +21,9 @@ Core maintenance and operational commands for managing OpenClaw gateways and env
 
 - **Signal/Fly Updates:** `fly ssh console -a flawd-bot -C "bash -lc 'cd /data/clawd/openclaw && git pull --rebase origin main'"`
 - **Restart Machine:** `fly machines restart <machine-id> -a flawd-bot`.
+
+## Batch Management & Academic Skills
+
+| Command | Description |
+| :--- | :--- |
+| `ktu-tutor-view` | Check internals/attendance upload status for a KTU batch and show submission status by faculty. |
