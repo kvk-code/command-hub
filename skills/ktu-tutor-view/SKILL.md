@@ -162,7 +162,74 @@ python3 scripts/ktu_tutor_view.py
 ```
 
 ### Output
-Prints a formatted table and saves JSON to `/tmp/ktu_internals_status.json`.
+- Prints a formatted table with overview + drill-down results
+- Saves JSON to `/tmp/ktu_internals_status.json`
+- Screenshots: `/tmp/ktu_tv_*.png` (overview), `/tmp/ktu_tv_drill_<COURSE>.png` (drill-down)
+
+---
+
+## Drill-Down: Student-Level Completeness (v2)
+
+For target courses (currently Usha K's CST414, CSD416), the script can **click into the View Internals/Attendance page** and extract per-student data.
+
+### When Drill-Down Triggers
+- Course status is ⚡ **Entered (not submitted)** — Export buttons visible
+- Course status is ✅ **Submitted by Faculty**
+- Does NOT drill into ⏳ **Pending** courses (no data to check)
+
+### What It Extracts
+
+**Page URL:** `/eu/exm/semesterAttendanceInternalListing.htm?urlParams=...`
+
+**Table structure (View Internals page):**
+
+| Column | Content | Input Name |
+|--------|---------|------------|
+| Student Name | Name + Reg No (e.g., "ABHIJITH P P - NSS22CS001") | — |
+| Attendance % | Text input | `attendance` |
+| Internal Marks/50 | Text input | `internalMarks` |
+| Avail Long Leave | Checkbox | `leave` |
+| Avail Duty Leave | Checkbox | `dutyLeave` |
+| Disciplinary Action | Hidden | `disciplinary` |
+| Eligible for Written Exam | Text (Yes/No) | `eligibility` |
+| Status | Hidden input | `sessionalEntryStatus` |
+| In-eligibility Type | Hidden | `reason` |
+
+**Key inputs per row:**
+- `attendance` — text input, value is percentage (e.g., "93")
+- `internalMarks` — text input, value is marks out of 50 (e.g., "42")
+- `studentId` — hidden, unique student ID
+- `sessionalEntryStatus` — hidden, "Saved-Not Submitted" or empty
+
+### Drill-Down Output
+```
+📋 DRILL-DOWN: 35/73 students complete
+   Attendance filled: 35/73
+   Marks filled: 35/73
+   Blank: 38 students
+   Entry status: Saved-Not Submitted
+   First blanks: KANISHKA C, KEERTHANA S, MERIN P R...
+```
+
+### Configuring Drill-Down Targets
+
+In `ktu_tutor_view.py`, modify these constants:
+```python
+DRILL_DOWN_COURSES = ['CST414', 'CSD416']  # Course codes to drill into
+```
+
+### Course-Specific Completeness Rules
+
+| Course | Attendance Required | Marks Required | Notes |
+|--------|-------------------|----------------|-------|
+| CST414 | Yes | Yes | Standard course — both fields needed |
+| CSD416 | Yes | **No** | Project Phase II — only attendance matters |
+|
+When reporting drill-down for CSD416, evaluate completeness on attendance count only. Missing marks should be reported as "N/A" not as incomplete.
+
+### Navigation After Drill-Down
+
+After extracting student data, the script calls `page.go_back()` to return to the Advisor's Batches results. If navigation fails, it re-navigates to the saved URL.
 
 ---
 
@@ -175,7 +242,7 @@ Prints a formatted table and saves JSON to `/tmp/ktu_internals_status.json`.
 | CST402 | Distributed Computing | Shilpa S | KTU-F46545 |
 | CST414 | Deep Learning | USHA K | KTU-F5220 |
 | CST404 | Comprehensive Viva Voce | KIRAN V K | KTU-F3938 |
-| CSD416 | Project Phase II | USHA K | KTU-F5220 |
+| CSD416 | Project Phase II | USHA K | KTU-F5220 | **Attendance only** (marks N/A) |
 
 ---
 
@@ -186,13 +253,61 @@ Prints a formatted table and saves JSON to `/tmp/ktu_internals_status.json`.
 | 404 on Advisor's Batches | Wrong URL (`advisorBatches.htm`) | Use `/eu/exm/staffAdvisorBatches.htm` via menu nav |
 | No table after Search | Filters not set / AJAX delay | Add 1.5s between each filter, 3s after Search |
 | Batch dropdown empty | Program not yet set (AJAX dependency) | Set AY → Program → wait → then Batch |
-| Login fails | Credentials changed | Check `memory/credentials-secure.md` |
+| Login timeout / connection error | KTU site busy or down | Script auto-retries up to 4 attempts with 2/4/8 min backoff; check `/tmp/ktu_monitor_retries.log` |
+| Drill-down page doesn't load | Encrypted URL params expired | Must navigate from overview — URLs are session-specific |
+| Back navigation fails after drill-down | KTU AJAX state lost | Script auto-detects and re-navigates to saved URL |
+| Empty trailing row in student table | KTU adds blank row at end | Script filters out rows with empty name |
+| Garbled email subject (e.g., `ÃƒÂ¢`) | Unicode chars (em dash, emojis) in subject line | Use ASCII hyphens only in subject; set `charset='utf-8'` on MIMEText body |
+
+---
+
+## Cron Job: Automated Monitoring
+
+**Schedule:** Every 30 minutes
+**Model:** Qwen 3.5+ (vision-capable for screenshot verification)
+**Notifications:** Telegram DM + Email (kiranvk@nssce.ac.in via gws CLI)
+
+**What the cron does:**
+1. Runs `ktu_tutor_view.py` → login, scrape overview, drill-down if applicable
+2. **Retry on failure:** If the script fails (login timeout, connection error), retries up to 4 attempts with exponential backoff (2/4/8 min delays). Total worst-case: ~14 min of retries, safely within the 30-min window.
+3. Qwen 3.5+ reads screenshots for visual verification
+4. Sends Telegram + Email with:
+   - Overview status for all 6 courses
+   - Drill-down details for target courses (student-level completeness)
+   - Change detection from previous check
+   - Retry count if retries were needed
+5. If ALL 4 attempts fail: sends "site unreachable" notification (no stale data)
+
+**Retry log:** `/tmp/ktu_monitor_retries.log`
+**Timeout:** 25 min (1500s) to accommodate retries
+
+**To disable:** `cron update jobId=<id> patch={"enabled": false}`
+**To trigger:** `cron run jobId=<id>`
 
 ---
 
 ## Changelog
 
-- **2026-04-14:** Created skill from live workflow analysis (4 screenshots + automation)
-- Discovered correct URL: `/eu/exm/staffAdvisorBatches.htm`
-- Verified all filter selectors and table structure
-- Course code correction: Mobile Computing is CST476 (not CST473)
+- **2026-04-16:** v2.2 — CSD416 attendance-only rule
+  - Project Phase II (CSD416) only requires attendance entry, not internal marks
+  - Cron reports CSD416 completeness based on attendance fill count only
+  - Marks column flagged as N/A for this course
+- **2026-04-16:** v2.1 — Added retry-with-backoff to cron job
+  - 4 attempts with exponential backoff (2/4/8 min delays)
+  - Timeout increased to 25 min (1500s) to accommodate retries
+  - Failure detection: exit code, timeout keywords, login page in screenshot
+  - Clean failure: "site unreachable" notification instead of stale data
+  - Retry log at `/tmp/ktu_monitor_retries.log`
+- **2026-04-16:** v2 — Added drill-down into student-level data for target courses
+  - Clicks View Internals/Attendance for Usha K's courses (CST414, CSD416)
+  - Extracts per-student attendance % and internal marks from input fields
+  - Reports X/Y filled, blank count, first blank student names
+  - Takes drill-down screenshots for Qwen 3.5+ visual verification
+  - Only drills when course shows entered/submitted (skips pure Pending)
+  - Discovered View Internals page structure: `semesterAttendanceInternalListing.htm`
+  - Input names: `attendance`, `internalMarks`, `sessionalEntryStatus`
+- **2026-04-14:** v1 — Created skill from live workflow analysis
+  - Discovered correct URL: `/eu/exm/staffAdvisorBatches.htm`
+  - Verified all filter selectors and table structure
+  - Course code correction: Mobile Computing is CST476 (not CST473)
+  - Three-state detection: Submitted / Entered (not submitted) / Pending
