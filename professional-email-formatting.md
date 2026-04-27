@@ -63,7 +63,7 @@ Distribute bolding throughout the email rather than concentrating in one paragra
 
 ### 5. Maintain Appropriate Proportion
 
-**Never bold more than 20% of total email content.** Over-bolding defeats the purpose and reduces readability.
+**Include 3-5 bold points where content length permits, without exceeding 20% total content.** Over-bolding defeats the purpose and reduces readability.
 
 ---
 
