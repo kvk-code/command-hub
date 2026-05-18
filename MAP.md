@@ -12,6 +12,9 @@
 - `docs/archive/` — archived documentation sets.
 - `docs/archive/devils-advocate/` — archive location for February and March 2026 Devil’s Advocate documents.
 - `docs/devils-advocate/` — active Devil’s Advocate working set.
+- `docs/people/` — people and contact reference material.
+- `docs/people/colleagues/` — colleague and faculty contact references.
+- `docs/people/colleagues/s8cse-faculty.md` — S8 CSE faculty directory and professional contact information.
 - `docs/acp-bridge.md` — ACP bridge notes.
 - `docs/openclaw-architecture.md` — architecture notes.
 - `docs/operational-commands.md` — operational command reference.
