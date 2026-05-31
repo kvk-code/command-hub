@@ -11,7 +11,7 @@
 - `docs/interactions/` — interaction logs and related docs.
 - `docs/archive/` — archived documentation sets.
 - `docs/archive/devils-advocate/` — archive location for February and March 2026 Devil’s Advocate documents.
-- `docs/devils-advocate/` — active Devil’s Advocate working set, including `docs/devils-advocate/2026-05-30-analysis.md`.
+- `docs/devils-advocate/` — active Devil’s Advocate working set, including `docs/devils-advocate/2026-05-30-analysis.md` and `docs/devils-advocate/2026-05-31.md`.
 - `docs/people/` — people and contact reference material.
 - `docs/people/colleagues/` — colleague and faculty contact references.
 - `docs/people/colleagues/s8cse-faculty.md` — S8 CSE faculty directory and professional contact information.
@@ -25,4 +25,4 @@
 ## Notes
 - The repository currently does not include a `.github/workflows/` directory, so an "Hourly Command Hub Sync" workflow definition was not found in the repo tree.
 - Devil’s Advocate files from February and March 2026 are intended to be archived under `docs/archive/devils-advocate/`.
-- The active `docs/devils-advocate/` set currently includes `docs/devils-advocate/2026-05-30-analysis.md`.
+- The active `docs/devils-advocate/` set currently includes `docs/devils-advocate/2026-05-30-analysis.md` and `docs/devils-advocate/2026-05-31.md`.
