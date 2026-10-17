@@ -3,8 +3,8 @@ Created 2026-10-17. Sources: growth-analysis-2026-10-17.md (§8–10), seo-geo-h
 Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran approves each section.
 
 ## A. Measurement & tracking (do first — everything else is judged by it)
-- [ ] A1 Add GA4 tag to practice / plans / sign-in / sign-up pages
-- [ ] A2 GA4 key events: sign_up, payment_submitted, payment_approved, quiz_started
+- [x] A1 GA4 tag: verified already on all 19 public+app pages (earlier 'missing' claim was wrong — curl hit login redirect)
+- [~] A2 GA4 events mirrored from Meta Pixel (2026-10-17): sign_up, generate_lead, begin_checkout, payment_submitted, payment_pending, practice_session_start/complete, sample_quiz_complete, start_trial. TODO: mark as Key events in GA4 once they arrive; payment_approved (admin side) pending
 - [ ] A3 UTM tags on every social/WhatsApp/LinkedIn/YouTube link
 - [ ] A4 Link Search Console ↔ GA4
 - [ ] A5 Weekly 1-page dashboard (users by channel, signups, payments)
@@ -48,3 +48,9 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [ ] G2 "AI Mentor" waitlist button (demand test) before building
 - [ ] G3 Build AI Mentor (per-user progress → topic guidance over question-bank wiki)
 - [ ] G4 Launch ₹2,499/exam-cycle premium tier; measure take-rate
+
+## Tracker audit (2026-10-17)
+- Meta Pixel 919839944003926 (19 Sep–16 Oct): PageView 719, ViewContent 403, QuizQuestionAnswered 170, AIDeepDiveClicked 136, PracticeSessionStarted 76, SampleQuizCompleted 18, StartTrial 6, PaymentPending 5, InitiateCheckout 2, CompleteRegistration 2, Lead 2, Purchase 1. 3 diagnostics open. No ads running → pixel is a funnel counter only, not attribution.
+- Microsoft Clarity uc0cq7dhg9: session expired; needs login (A6).
+- Microsoft UET/Bing: NOT installed.
+- [ ] A6 Log in to Clarity; review recordings of plans.php drop-off + dead clicks
