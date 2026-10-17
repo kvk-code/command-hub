@@ -53,4 +53,8 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - Meta Pixel 919839944003926 (19 Sep–16 Oct): PageView 719, ViewContent 403, QuizQuestionAnswered 170, AIDeepDiveClicked 136, PracticeSessionStarted 76, SampleQuizCompleted 18, StartTrial 6, PaymentPending 5, InitiateCheckout 2, CompleteRegistration 2, Lead 2, Purchase 1. 3 diagnostics open. No ads running → pixel is a funnel counter only, not attribution.
 - Microsoft Clarity uc0cq7dhg9: session expired; needs login (A6).
 - Microsoft UET/Bing: NOT installed.
-- [ ] A6 Log in to Clarity; review recordings of plans.php drop-off + dead clicks
+- [x] A6 Clarity logged in (pomi.04092110@outlook.in, neko-preetha). Last 30d: 177 sessions/109 users, 30% returning, 1.7 min active, 2.81 pages/session. Referrers: google.com 65, chatgpt 5, reddit 5 (+3 app), Gmail app 3. Top pages: home 58+25, PYQ hub 52, sample-quiz 46, practice 45, 162/2025 20.
+- [ ] A7 Fix JS error "querySelector '#' is not a valid selector" (82% of 23 errors; likely href="#" anchor handler)
+- [ ] A8 Investigate dead clicks (33% of sessions) + quick-backs (28%) via Clarity heatmaps
+- [ ] A9 Reddit is a referrer — find the thread(s); seed D3 there
+- [ ] A10 LCP 3.1s → <2.5s (performance 78/100)
