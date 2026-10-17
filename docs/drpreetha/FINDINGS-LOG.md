@@ -37,3 +37,16 @@ Companion: MASTER-CHECKLIST.md (actions). Sync: `bash drpreetha/sync.sh "msg"` �
 - Top pages: home 83, PYQ hub 52, sample-quiz 46, practice 45, 162/2025 20.
 - Problems: dead clicks 33% sessions, quick-backs 28%, JS error "'#' is not a valid selector" = 82% of errors, LCP 3.1 s (score 78).
 - Microsoft UET/Bing Ads: not installed (not needed unless Bing ads).
+
+## 2026-10-17 — Search Console (URL-prefix property https://drpreetha.com/, kiranvk2011 = authuser 1)
+- 16 months (25 Nov 2025–14 Oct 2026): 119 clicks, 1.76K impressions, CTR 6.8%, avg position 7.8.
+- Top queries: "assistant surgeon kerala psc previous question papers" 2/7, "kerala psc assistant surgeon previous question papers with answers" 1/8, "dr preetha" 0/52, "psc ent" 0/16, "opsc medical officer free mock test" 0/15 (Odisha PSC — untapped intent).
+- Top pages: home 74/891, PYQ hub 22/156, sample-quiz 9/157, 017-2021 4/51, contact 3/394 (high impr, low click), 162-2025 1/42.
+- Indexing: 20 indexed, 4 not (2 noindex intentional, 1 canonical alternate, 1 discovered-not-indexed). sitemap.php submitted 1 Oct, read 15 Oct, 21 URLs OK. Domain property sc-domain:drpreetha.com NOT accessible from either account.
+- Meaning: PYQ pages already earn Google clicks; volume is tiny — content depth + more pages (C2–C5) is the lever, not indexing.
+
+## 2026-10-17 — Fixes shipped
+- JS error "'#' is not a valid selector" (82% of Clarity errors): index.php smooth-scroll skips bare '#'.
+- Dead click: "KPSC Practice ▾" menu was hover-only → tap did nothing on phones. Tap-to-open added on 13 pages; verified in neko (opens on tap, closes on outside tap).
+- UTM link sheet drpreetha/UTM-LINKS.md (A3).
+- Backups: /root/.hermes/cache/scratch/drp-backup-*.
