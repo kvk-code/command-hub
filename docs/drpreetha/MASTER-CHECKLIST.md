@@ -5,8 +5,8 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 ## A. Measurement & tracking (do first — everything else is judged by it)
 - [x] A1 GA4 tag: verified already on all 19 public+app pages (earlier 'missing' claim was wrong — curl hit login redirect)
 - [~] A2 GA4 events mirrored from Meta Pixel (2026-10-17): sign_up, generate_lead, begin_checkout, payment_submitted, payment_pending, practice_session_start/complete, sample_quiz_complete, start_trial. TODO: mark as Key events in GA4 once they arrive; payment_approved (admin side) pending
-- [ ] A3 UTM tags on every social/WhatsApp/LinkedIn/YouTube link
-- [ ] A4 Link Search Console ↔ GA4
+- [x] A3 UTM link sheet: drpreetha/UTM-LINKS.md (use for every post/share)
+- [ ] A4 Link Search Console ↔ GA4 (GA4 Admin → Product links; needs a click in GA4 UI)
 - [ ] A5 Weekly 1-page dashboard (users by channel, signups, payments)
 
 ## B. Retention & revenue recovery (biggest money leak)
@@ -17,7 +17,7 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [ ] B5 WhatsApp broadcast opt-in at signup
 
 ## C. Google Search SEO (expander: seo-geo-hitlist §1–7)
-- [ ] C1 Search Console: sitemap submit, index 11 PYQ URLs, fix /sitemap.xml 404
+- [x] C1 Search Console: sitemap.php submitted+read OK, 20/24 pages indexed (rest intentional). Optional: /sitemap.xml alias
 - [ ] C2 Syllabus & exam-pattern 2026 page
 - [ ] C3 Cat 34/2026 (exam 12 Nov) "what to study" page with subject weightage from 913 Qs
 - [ ] C4 Hub + paper pages: answer-first summary, FAQ + FAQPage schema, last-updated, reviewer byline, official source links
@@ -54,7 +54,7 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - Microsoft Clarity uc0cq7dhg9: session expired; needs login (A6).
 - Microsoft UET/Bing: NOT installed.
 - [x] A6 Clarity logged in (pomi.04092110@outlook.in, neko-preetha). Last 30d: 177 sessions/109 users, 30% returning, 1.7 min active, 2.81 pages/session. Referrers: google.com 65, chatgpt 5, reddit 5 (+3 app), Gmail app 3. Top pages: home 58+25, PYQ hub 52, sample-quiz 46, practice 45, 162/2025 20.
-- [ ] A7 Fix JS error "querySelector '#' is not a valid selector" (82% of 23 errors; likely href="#" anchor handler)
-- [ ] A8 Investigate dead clicks (33% of sessions) + quick-backs (28%) via Clarity heatmaps
+- [x] A7 Fix JS error "querySelector '#' is not a valid selector" (82% of 23 errors; likely href="#" anchor handler)
+- [~] A8 Dead clicks: nav dropdown tap-to-open shipped on 13 pages; re-check Clarity in 7 days. Investigate dead clicks (33% of sessions) + quick-backs (28%) via Clarity heatmaps
 - [ ] A9 Reddit is a referrer — find the thread(s); seed D3 there
 - [ ] A10 LCP 3.1s → <2.5s (performance 78/100)
