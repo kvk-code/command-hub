@@ -58,3 +58,5 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [~] A8 Dead clicks: nav dropdown tap-to-open shipped on 13 pages; re-check Clarity in 7 days. Investigate dead clicks (33% of sessions) + quick-backs (28%) via Clarity heatmaps
 - [ ] A9 Reddit is a referrer — find the thread(s); seed D3 there
 - [ ] A10 LCP 3.1s → <2.5s (performance 78/100)
+- [ ] C8 OPSC (Odisha) Medical Officer: we rank ~#7.5 with 0 clicks — decide: dedicated landing page or adjust sample-quiz title to stop mismatch
+- [ ] C9 Blog: add Article JSON-LD + real posts (currently thin)
