@@ -50,3 +50,12 @@ Companion: MASTER-CHECKLIST.md (actions). Sync: `bash drpreetha/sync.sh "msg"` �
 - Dead click: "KPSC Practice ▾" menu was hover-only → tap did nothing on phones. Tap-to-open added on 13 pages; verified in neko (opens on tap, closes on outside tap).
 - UTM link sheet drpreetha/UTM-LINKS.md (A3).
 - Backups: /root/.hermes/cache/scratch/drp-backup-*.
+
+## 2026-10-17 — MakeMeFamous run: tag audit (live HTML, 23 public pages + 5 app pages)
+- All 21 sitemap pages + subscribe/special-offer: title, description, canonical, OG, Twitter card, GA4, Meta Pixel, Clarity all present. No tag gaps.
+- App pages (plans, kpsc-practice, profile, subscription-status): GA4 (via config GA4_MEASUREMENT_ID), Pixel, Clarity in source; login-gated so crawlers see Google sign-in (correct).
+- coverage.php, mail-prefs.php: no trackers — internal/robots-disallowed, intentionally left.
+- JSON-LD missing on sample-quiz, features, blog, legal pages → added Quiz (sample-quiz) + Product/Offer ₹299 (features).
+- llms.txt lacked subscribe page → added.
+- Reindex: IndexNow 23 URLs (indexnow.org/Bing/Yandex 200), GSC sitemap resubmitted.
+- GSC 28d: "opsc medical officer free mock test" 15 impr @7.5 + "...mock test free" 6 @8.2, 0 clicks → Odisha intent we rank for but don't serve.
