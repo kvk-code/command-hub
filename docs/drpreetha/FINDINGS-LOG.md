@@ -59,3 +59,14 @@ Companion: MASTER-CHECKLIST.md (actions). Sync: `bash drpreetha/sync.sh "msg"` �
 - llms.txt lacked subscribe page → added.
 - Reindex: IndexNow 23 URLs (indexnow.org/Bing/Yandex 200), GSC sitemap resubmitted.
 - GSC 28d: "opsc medical officer free mock test" 15 impr @7.5 + "...mock test free" 6 @8.2, 0 clicks → Odisha intent we rank for but don't serve.
+
+## 2026-10-18 — A4 done: Search Console ↔ GA4 linked (end-to-end verified)
+- Link: GSC https://drpreetha.com/ (URL-prefix) → GA4 stream drpreetha.com (13049052249), by kiranvk2011. Reports > Search Console > Queries / Google organic search traffic now populated (data back to Sep 2025).
+- Organic landing pages (Sep 2025–16 Oct 2026; clicks / impr / engagement / avg time / key events):
+  - / : 76 / 904 / 65% / 1m19s / 2
+  - PYQ hub: 25 / 166 / 76% / 2m48s / 2  ← best page: highest CTR (15%), engagement, time
+  - sample-quiz: 9 / 159 / 53% / 1m37s / 2
+  - 048-2024: 2 / 27 / 75% / 1m29s / 2
+  - contact.php: 3 / 399 / 67% / 7s / 0  ← 399 impressions, 0.75% CTR: ENT-patient intent landing on wrong page
+  - Total organic: 129 clicks, 110 users, 10 key events.
+- Meaning: PYQ hub converts best per click → push internal links/titles toward it; contact.php needs an ENT-clinic landing (Palakkad) or better title/description.
