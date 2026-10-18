@@ -6,7 +6,7 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [x] A1 GA4 tag: verified already on all 19 public+app pages (earlier 'missing' claim was wrong — curl hit login redirect)
 - [~] A2 GA4 events mirrored from Meta Pixel (2026-10-17): sign_up, generate_lead, begin_checkout, payment_submitted, payment_pending, practice_session_start/complete, sample_quiz_complete, start_trial. TODO: mark as Key events in GA4 once they arrive; payment_approved (admin side) pending
 - [x] A3 UTM link sheet: drpreetha/UTM-LINKS.md (use for every post/share)
-- [ ] A4 Link Search Console ↔ GA4 (GA4 Admin → Product links; needs a click in GA4 UI)
+- [x] A4 Search Console ↔ GA4 linked 2026-10-18; reports live under Reports > Search Console
 - [ ] A5 Weekly 1-page dashboard (users by channel, signups, payments)
 
 ## B. Retention & revenue recovery (biggest money leak)
@@ -60,3 +60,4 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [ ] A10 LCP 3.1s → <2.5s (performance 78/100)
 - [ ] C8 OPSC (Odisha) Medical Officer: we rank ~#7.5 with 0 clicks — decide: dedicated landing page or adjust sample-quiz title to stop mismatch
 - [ ] C9 Blog: add Article JSON-LD + real posts (currently thin)
+- [ ] C10 contact.php gets 399 impr / 0.75% CTR / 7s — fix title+description for ENT patients or add clinic landing page
