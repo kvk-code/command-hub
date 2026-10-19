@@ -61,3 +61,24 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [ ] C8 OPSC (Odisha) Medical Officer: we rank ~#7.5 with 0 clicks — decide: dedicated landing page or adjust sample-quiz title to stop mismatch
 - [ ] C9 Blog: add Article JSON-LD + real posts (currently thin)
 - [ ] C10 contact.php gets 399 impr / 0.75% CTR / 7s — fix title+description for ENT patients or add clinic landing page
+
+## H. Coach-mail system & subscriber flow (added 2026-10-19)
+Done:
+- [x] H0a Mail tracking pixels live (weekly reports, all MailerPA site mails, inform-subscribers campaigns) — send+open logged per address (29c12f9, bff8d0b)
+- [x] H0b "1 questions" subject bug fixed
+- [x] H0c Night quote top-up cron 23:00 IST tonight (Alibaba night window 19:30–05:30 IST, qwen3.8-max 60% off; 3.7-plus fallback); verbatim-verified before going live
+- [x] H0d Test user kiranvk2011 (id 27) deleted (backup kpsc-cache/rollback/user27-*.json) and re-run as new subscriber; flow shots taken
+Pending (exam news first — page + mail depend on it):
+- [ ] H1 Exams section on KPSC Practice Hub + weekly PSC-site scan (page-designer)
+- [ ] H2 Joining page for lapsed subscribers (page-designer)
+- [ ] H3 Weekly exam-news mail to ALL ever-subscribed; lapsed = exam news + join link only, no practice details; active = inside weekly report
+- [ ] H4 Quote DB with per-user usage log (no repeats) + auto top-up when pool runs low
+- [ ] H5 Weekly subscriber profiles (feeds mails + future AI coach)
+- [ ] H6 Qwen-written personalised mail wording (night window), with safety checks
+- [ ] H7 Decide on TEST-AGENT-20261019 pending payment (approve to shoot approval flow, or reject)
+Subscriber-flow fixes (page-designer review, 4–5.5/10):
+- [ ] H8 Plans: false "Save ₹97" / "58% off" — longer plans cost MORE per month; fix prices or labels
+- [ ] H9 Payment page: UPI-app deep link + copy-UPI button, clean large QR, prominent amount, correct heading
+- [ ] H10 Under-review page: broken label/value table, mixed success/pending signals
+- [ ] H11 Profile page: style select, generic placeholders
+- [ ] H12 Public subscribe.php: clipped "Best Value" badge, all buttons "Coming Soon"
