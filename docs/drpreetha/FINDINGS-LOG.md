@@ -70,3 +70,9 @@ Companion: MASTER-CHECKLIST.md (actions). Sync: `bash drpreetha/sync.sh "msg"` �
   - contact.php: 3 / 399 / 67% / 7s / 0  ← 399 impressions, 0.75% CTR: ENT-patient intent landing on wrong page
   - Total organic: 129 clicks, 110 users, 10 key events.
 - Meaning: PYQ hub converts best per click → push internal links/titles toward it; contact.php needs an ENT-clinic landing (Palakkad) or better title/description.
+
+## 2026-10-19 — MakeMeFamous over pricing/policy pages + full funnel tracking
+- Pages: subscribe, plans, refund-policy, shipping, terms. All carry GA4 G-RW72H5NZ2R + Meta Pixel + Clarity (verified by live network capture in neko-preetha).
+- New events: GA4 ecommerce view_item_list / select_item / begin_checkout (value, upgrade credit) / add_payment_info / payment_submitted; policy_view; free_sample_click. Pixel AddToCart on public plan buttons, FreeSampleClick. Clarity tags page_type, plan_selected, is_upgrade, current_plan, identify(u<id>), upgrade on payment submit.
+- subscribe.php: Product JSON-LD with 3 Offers (299/999/1999) from pricing.php. sitemap.php + subscribe.php; llms.txt plan/refund/shipping facts.
+- IndexNow (indexnow.org 200, Bing 200, Yandex 202), GSC sitemap resubmitted.
