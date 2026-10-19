@@ -78,3 +78,5 @@ Companion: MASTER-CHECKLIST.md (actions). Sync: `bash drpreetha/sync.sh "msg"` â
 - IndexNow (indexnow.org 200, Bing 200, Yandex 202), GSC sitemap resubmitted.
 
 - 2026-10-19: GA4 key events now: payment_submitted, sign_up, begin_checkout (+ existing subscription_submitted, ads_conversion_PURCHASE_1). Meta pixel Purchase/InitiateCheckout are standard events (usable as ad optimisation goal). Cron eff43c099a54 2 Nov 10:00 IST plan-click review.
+
+- 2026-10-19: weekly batch sent 09:10 IST from pre-pixel drafts (opens untracked); takeaways drpreetha/SESSION-TAKEAWAYS-2026-10-19-pricing-tracking.md
