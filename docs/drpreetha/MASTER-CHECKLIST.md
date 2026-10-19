@@ -11,7 +11,7 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 
 ## B. Retention & revenue recovery (biggest money leak)
 - [ ] B1 List expired / unpaid / expiring-in-7-days users from DB
-- [ ] B2 Win-back email to ~16 lapsed/unpaid accounts (Gmail draft → Kiran OK → send)
+- [ ] B2 Win-back email to ~16 lapsed/unpaid accounts (Gmail draft → Kiran OK → send). Offer decided 19 Oct: ₹699 for 3 months
 - [ ] B3 Automated renewal reminders (7 days, 1 day, expired) + UPI pay link
 - [ ] B4 Exam-countdown email to all users before 12 Nov 2026
 - [ ] B5 WhatsApp broadcast opt-in at signup
@@ -69,7 +69,7 @@ Done:
 - [x] H0c Night quote top-up cron 23:00 IST tonight (Alibaba night window 19:30–05:30 IST, qwen3.8-max 60% off; 3.7-plus fallback); verbatim-verified before going live
 - [x] H0d Test user kiranvk2011 (id 27) deleted (backup kpsc-cache/rollback/user27-*.json) and re-run as new subscriber; flow shots taken
 Pending (exam news first — page + mail depend on it):
-- [ ] H1 Exams section on KPSC Practice Hub + weekly PSC-site scan (page-designer)
+- [ ] H1 Exams section on KPSC Practice Hub + nightly PSC-site scan (page-designer). Plan: KPSC-NEWS-PLAN-2026-10-19.md. Syllabus per category in kpsc-news/syllabus/ (Cat 34/2026 official copy saved 19 Oct)
 - [ ] H2 Joining page for lapsed subscribers (page-designer)
 - [ ] H3 Weekly exam-news mail to ALL ever-subscribed; lapsed = exam news + join link only, no practice details; active = inside weekly report
 - [ ] H4 Quote DB with per-user usage log (no repeats) + auto top-up when pool runs low
@@ -82,3 +82,9 @@ Subscriber-flow fixes (page-designer review, 4–5.5/10):
 - [ ] H10 Under-review page: broken label/value table, mixed success/pending signals
 - [ ] H11 Profile page: style select, generic placeholders
 - [ ] H12 Public subscribe.php: clipped "Best Value" badge, all buttons "Coming Soon"
+
+## I. Future scope — KPSC news beyond Assistant Surgeon (added 2026-10-19, not now)
+- [ ] I1 Dental Assistant Surgeon (Cat 375/2024 ranked list live)
+- [ ] I2 Medical Officer — Homoeo / ISM (Ayurveda)
+- [ ] I3 Assistant Professor posts, Medical Education
+- [ ] I4 Assistant Insurance Medical Officer (IMS/ESI)
