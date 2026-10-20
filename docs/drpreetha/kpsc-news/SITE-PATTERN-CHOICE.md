@@ -26,18 +26,7 @@ once Google trusts the section. Moving from B to A is easy; going the other way 
 
 ## How visitors and Google reach us (both patterns)
 
-```mermaid
-flowchart LR
-    G[Google search] --> S
-    AI[ChatGPT / Perplexity / Gemini] --> S
-    X[X, Telegram, WhatsApp posts] --> S
-    M[Weekly exam-news mail] --> S
-    S[KPSC news section] --> P[Past-paper hub<br/>10 paper pages]
-    S --> Q[Sample quiz]
-    S --> SUB[Subscribe<br/>₹299 / ₹699 for 3 months]
-    P --> SUB
-    Q --> SUB
-```
+![flow-overview](img/flow-overview.png)
 
 Both patterns use the same verified facts (taken only from official keralapsc.gov.in PDFs, approved by you on Telegram)
 and both send people to the past papers, quiz and subscribe page. The difference is **how many pages those facts are spread over**.
@@ -46,21 +35,7 @@ and both send people to the past papers, quiz and subscribe page. The difference
 
 ## Pattern A: "Many pages"
 
-```mermaid
-flowchart TD
-    H["/kpsc-medical-officer<br/>main page"]
-    H --> C1["/034-2026"]
-    H --> C2["/177-2025"]
-    H --> C3["/401-2024, /018-2024, /536-2023"]
-    H --> SY["/syllabus"]
-    H --> ED["/exam-date"]
-    H --> NO["/notifications"]
-    H --> RL["/rank-list"]
-    H --> AK["/answer-key"]
-    H --> UP["/updates"]
-    UP --> U1["/updates/2026-10-28-admit-card-034-2026"]
-    UP --> U2["/updates/...one page per event"]
-```
+![pattern-a](img/pattern-a.png)
 
 **How it works:** every kind of information and every news event gets its own address.
 The admit card on 28 Oct would appear on `/034-2026`, on `/exam-date`, on the main page *and* as a new `/updates/...` page.
@@ -84,19 +59,7 @@ The admit card on 28 Oct would appear on `/034-2026`, on `/exam-date`, on the ma
 
 ## Pattern B: "Few strong pages" (recommended)
 
-```mermaid
-flowchart TD
-    H["/kpsc-assistant-surgeon<br/>main page: status table of all categories,<br/>exam calendar, countdown, latest entries"]
-    H --> C1["/cat-034-2026<br/>owns ALL Cat 34 facts + dated updates"]
-    H --> C2["/cat-177-2025<br/>general list: shortlist, ranked list, appointments"]
-    H --> SY["/syllabus<br/>11 modules + marks + past-question count<br/>→ quiz for that subject"]
-    H --> RL["/rank-list<br/>ranked lists + appointment progress"]
-    H -.later.-> C3["/cat-401-2024 …"]
-    C1 --> P["Past-paper hub + paper pages<br/>(existing, unchanged)"]
-    SY --> P
-    F["/feeds/kpsc-assistant-surgeon.json + .xml<br/>machine-readable updates"] -.- H
-    T["/about/dr-preetha + /verification-policy<br/>trust pages"] -.- H
-```
+![pattern-b](img/pattern-b.png)
 
 **How it works:** each category page is the single home for its facts. The admit card on 28 Oct is added as a
 dated line ("28 Oct 2026 — admit card released, source: KPSC PDF") on `/cat-034-2026`, shown on the main page,
@@ -120,20 +83,7 @@ and published in the feed. The syllabus and rank-list pages **link** to the cate
 
 ## How the 28 Oct admit card would appear in each pattern
 
-```mermaid
-flowchart LR
-    subgraph A[Pattern A]
-      E1[Admit card out] --> A1["/034-2026 edited"]
-      E1 --> A2["/exam-date edited"]
-      E1 --> A3["main page edited"]
-      E1 --> A4["NEW /updates/2026-10-28-admit-card-034-2026"]
-    end
-    subgraph B[Pattern B]
-      E2[Admit card out] --> B1["/cat-034-2026: dated entry added"]
-      B1 --> B2["main page shows it"]
-      B1 --> B3["feed + X/Telegram post link to #anchor"]
-    end
-```
+![admit-card-compare](img/admit-card-compare.png)
 
 ---
 
