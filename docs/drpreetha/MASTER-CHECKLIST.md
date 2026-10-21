@@ -83,6 +83,9 @@ Subscriber-flow fixes (page-designer review, 4–5.5/10):
 - [ ] H11 Profile page: style select, generic placeholders
 - [ ] H12 Public subscribe.php: clipped "Best Value" badge, all buttons "Coming Soon"
 
+
+- [ ] H10 "Where am I?" tracker (KPSC stage + shortlist/rank/advice search, nightly crawl, alerts, public impact strip, sponsorship). Plan: kpsc-news/WHERE-AM-I-TRACKER-PLAN-2026-10-21.md. Gate: PSC letter + lawyer review + data-join check before personal search.
+
 ## I. Future scope — KPSC news beyond Assistant Surgeon (added 2026-10-19, not now)
 - [ ] I1 Dental Assistant Surgeon (Cat 375/2024 ranked list live)
 - [ ] I2 Medical Officer — Homoeo / ISM (Ayurveda)
