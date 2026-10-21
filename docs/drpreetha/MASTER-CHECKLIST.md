@@ -79,7 +79,15 @@ Pending (exam news first — page + mail depend on it):
 Subscriber-flow fixes (page-designer review, 4–5.5/10):
 - [ ] H8 Plans: false "Save ₹97" / "58% off" — longer plans cost MORE per month; fix prices or labels
 - [ ] H9 Payment page: UPI-app deep link + copy-UPI button, clean large QR, prominent amount, correct heading
-- [ ] H10 Under-review page: broken label/value table, mixed success/pending signals
+- [ ] H10 "Where am I?" tracker. Plan: kpsc-news/WHERE-AM-I-TRACKER-PLAN-2026-10-21.md (§11 access model, §12 fetch plan)
+  - [x] Lookup engine + index + golden test (Dr Preetha 305/2019 + 092/2020): e2e 21/21
+  - [x] Access tiers (free 1 check / Rs50 mo / Rs450 yr / free for QB subscribers), watches, alerts, delete, demand spike: e2e 19/19
+  - [x] Letter to KPSC drafted (mail@drpreetha.com Drafts) — Kiran to review + send
+  - [ ] Where-am-I page A + fixes (box on top, sample result, data-date line, impact strip)
+  - [ ] Payment plan (Rs50/mo UPI autopay, Rs450/yr) + QB-subscriber entitlement hook
+  - [ ] Nightly cron + instant fetch (Qwen finder) + adaptive refresh
+  - [ ] Privacy notice + consent + delete link; lawyer review
+  - [ ] QB hub footer: "reproduced under KPSC's copyright terms, with source acknowledged"
 - [ ] H11 Profile page: style select, generic placeholders
 - [ ] H12 Public subscribe.php: clipped "Best Value" badge, all buttons "Coming Soon"
 
