@@ -13,8 +13,8 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 
 ## B. Retention & revenue recovery (biggest money leak)
 - [ ] B1 List expired / unpaid / expiring-in-7-days users from DB
-- [~] B2 Win-back wave 1 (23 Oct): EXCLUSIVE returning-customer pack ₹699 = 12 Nov exam + next cycle, past payers only, personal links, valid till 5 Nov. Workflow: WINBACK-WORKFLOW.md
-- [ ] B2b Wave 2 ≈ late Nov: signed-up-never-paid → separate welcome/new-features mail (not the returning pack)
+- [x] B2 Win-back wave 1 SENT 23 Oct 13:40 IST (3/3): EXCLUSIVE returning-customer pack ₹699 = 12 Nov exam + next cycle, past payers only, personal links, valid till 5 Nov. Workflow: WINBACK-WORKFLOW.md
+- [ ] B2b Wave 2 (when Kiran decides): signed-up-never-paid → separate welcome/new-features mail (not the returning pack)
 - [ ] B3 Automated renewal reminders (7 days, 1 day, expired) + UPI pay link
 - [ ] B4 Exam-countdown email to all users before 12 Nov 2026
 - [ ] B5 WhatsApp broadcast opt-in at signup
@@ -75,7 +75,7 @@ Done:
 - [x] H0c Night quote top-up cron 23:00 IST tonight (Alibaba night window 19:30–05:30 IST, qwen3.8-max 60% off; 3.7-plus fallback); verbatim-verified before going live
 - [x] H0d Test user kiranvk2011 (id 27) deleted (backup kpsc-cache/rollback/user27-*.json) and re-run as new subscriber; flow shots taken
 Pending (exam news first — page + mail depend on it):
-- [~] H1 (23 Oct: news hub live, 20 items; daily card workflow + auto-filters documented in kpsc-news/NEWS-CARD-WORKFLOW.md) (21 Oct: Pattern B chosen, reviewer Dr Preetha OK; kpsc-news/SITE-PATTERN-CHOICE.md) (now: separate public section /kpsc-medical-officer, plan KPSC-NEWS-SEO-SOCIAL-PLAN-2026-10-20.md) Exams section on KPSC Practice Hub + nightly PSC-site scan (page-designer). Plan: KPSC-NEWS-PLAN-2026-10-19.md. Syllabus per category in kpsc-news/syllabus/ (Cat 34/2026 official copy saved 19 Oct)
+- [~] H1 (23 Oct: "🆕 New this week" badge+filter+SEO on news page and cards; news hub live, 20 items; daily card workflow + auto-filters documented in kpsc-news/NEWS-CARD-WORKFLOW.md) (21 Oct: Pattern B chosen, reviewer Dr Preetha OK; kpsc-news/SITE-PATTERN-CHOICE.md) (now: separate public section /kpsc-medical-officer, plan KPSC-NEWS-SEO-SOCIAL-PLAN-2026-10-20.md) Exams section on KPSC Practice Hub + nightly PSC-site scan (page-designer). Plan: KPSC-NEWS-PLAN-2026-10-19.md. Syllabus per category in kpsc-news/syllabus/ (Cat 34/2026 official copy saved 19 Oct)
 - [ ] H2 Joining page for lapsed subscribers (page-designer)
 - [ ] H3 Weekly exam-news mail to ALL ever-subscribed; lapsed = exam news + join link only, no practice details; active = inside weekly report
 - [ ] H4 Quote DB with per-user usage log (no repeats) + auto top-up when pool runs low
