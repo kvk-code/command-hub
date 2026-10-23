@@ -1,4 +1,6 @@
 # drpreetha.com — Master growth checklist
+
+> **SENDER RULE:** subscriber/bulk mail is sent From progress@updates.drpreetha.com (Reply-To mail@), never mail@. See INCIDENT-2026-10-23-MAIL-SENDER.md.
 Created 2026-10-17. Sources: growth-analysis-2026-10-17.md (§8–10), seo-geo-hitlist-2026-10-17.md.
 Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran approves each section.
 
@@ -11,10 +13,14 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 
 ## B. Retention & revenue recovery (biggest money leak)
 - [ ] B1 List expired / unpaid / expiring-in-7-days users from DB
-- [ ] B2 Win-back email to ~16 lapsed/unpaid accounts (Gmail draft → Kiran OK → send). Offer decided 19 Oct: ₹699 for 3 months
+- [~] B2 Win-back wave 1 (23 Oct): EXCLUSIVE returning-customer pack ₹699 = 12 Nov exam + next cycle, past payers only, personal links, valid till 5 Nov. Workflow: WINBACK-WORKFLOW.md
+- [ ] B2b Wave 2 ≈ late Nov: signed-up-never-paid → separate welcome/new-features mail (not the returning pack)
 - [ ] B3 Automated renewal reminders (7 days, 1 day, expired) + UPI pay link
 - [ ] B4 Exam-countdown email to all users before 12 Nov 2026
 - [ ] B5 WhatsApp broadcast opt-in at signup
+
+- [ ] B6 Exam Pass 'save ₹197 vs 4 months' misleading when exam <2 months away → compute from next exam date
+- [ ] B7 subscribe.php 'Detailed Explanations' overclaim → reword
 
 ## C. Google Search SEO (expander: seo-geo-hitlist §1–7)
 - [x] C1 Search Console: sitemap.php submitted+read OK, 20/24 pages indexed (rest intentional). Optional: /sitemap.xml alias
@@ -77,7 +83,7 @@ Pending (exam news first — page + mail depend on it):
 - [ ] H6 Qwen-written personalised mail wording (night window), with safety checks
 - [ ] H7 Decide on TEST-AGENT-20261019 pending payment (approve to shoot approval flow, or reject)
 Subscriber-flow fixes (page-designer review, 4–5.5/10):
-- [ ] H8 Plans: false "Save ₹97" / "58% off" — longer plans cost MORE per month; fix prices or labels
+- [x] H8 (live since 19 Oct; verified 23 Oct) Plans: false "Save ₹97" / "58% off" — longer plans cost MORE per month; fix prices or labels
 - [ ] H9 Payment page: UPI-app deep link + copy-UPI button, clean large QR, prominent amount, correct heading
 - [ ] H10 "Where am I?" tracker. Plan: kpsc-news/WHERE-AM-I-TRACKER-PLAN-2026-10-21.md (§11 access model, §12 fetch plan)
   - [x] Lookup engine + index + golden test (Dr Preetha 305/2019 + 092/2020): e2e 21/21
@@ -89,7 +95,7 @@ Subscriber-flow fixes (page-designer review, 4–5.5/10):
   - [ ] Privacy notice + consent + delete link; lawyer review
   - [ ] QB hub footer: "reproduced under KPSC's copyright terms, with source acknowledged"
 - [ ] H11 Profile page: style select, generic placeholders
-- [ ] H12 Public subscribe.php: clipped "Best Value" badge, all buttons "Coming Soon"
+- [x] H12 (verified 23 Oct) Public subscribe.php: clipped "Best Value" badge, all buttons "Coming Soon"
 
 
 - [ ] H10 "Where am I?" tracker (KPSC stage + shortlist/rank/advice search, nightly crawl, alerts, public impact strip, sponsorship). Plan: kpsc-news/WHERE-AM-I-TRACKER-PLAN-2026-10-21.md. Gate: PSC letter + lawyer review + data-join check before personal search.
