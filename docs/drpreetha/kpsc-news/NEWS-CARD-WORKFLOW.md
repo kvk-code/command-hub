@@ -29,3 +29,10 @@ Report "published on site" from the **live page** (`grep -c 'class="nw-item"'`) 
 Site: 20 items published = 20 decisions, 0 pending. Local: 157 items (old 119, verified 20, superseded 8, expired 8, dropped 2).
 Backups: `/root/kpsc-tracker/news/items.pre-*.json`, `/root/.hermes/cache/scratch/decisions.bak-*.json`, script `news_scan.py.bak-20261023`.
 Commits: 5c839f5 (supersede), 15b3ebe (exam expiry), + this doc / REPLACES header.
+
+## Publish-all + search-engine pings (added 2026-10-23)
+- After the cards, the scan sends one summary message with a **✅ Publish all N** button (HMAC-signed over the id list, action `publishall`). Already-decided items are skipped, never overwritten. Individual cards still work; undo per item from its own card.
+- Every publish (single or all) pings **IndexNow** from `news-approve.php` for `/kerala-psc-medical-officer` + `/where-am-i`.
+- `kpsc-tracker-scripts/news_ping.py`, VPS cron hourly at :07: if live `decisions.json` changed, IndexNow + **GSC sitemap resubmit** (`https://drpreetha.com/sitemap.php`, token `/root/brain/credentials/gsc-kiranvk2011-tokens.json`). `FORCE=1` to ping now. Log `/var/log/hermes-cron/kpsc-news-ping.log`.
+- Full make-me-famous is weekly, not per publish.
+- Rollback: `kpsc-cache/rollback/news-approve.pre-publishall-20261023.php`.
