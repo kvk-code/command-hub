@@ -45,7 +45,7 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 
 ## F. Content & social
 - [ ] F1 YouTube short per PYQ paper → link to page
-- [ ] F2 Instagram reels from Dr Preetha's videos
+- [ ] F2 Instagram reels from Dr Preetha's videos — schedule: drpreetha/instagram/SCHEDULE.md (12 posts Oct27–Nov7 09:30 IST)
 - [ ] F3 LinkedIn: deprioritise (641 impressions, ~0 signups); keep profile for credibility
 - [ ] F4 Testimonials from paying users on site
 
@@ -78,9 +78,9 @@ Pending (exam news first — page + mail depend on it):
 - [~] H1 (23 Oct: "🆕 New this week" badge+filter+SEO on news page and cards; news hub live, 20 items; daily card workflow + auto-filters documented in kpsc-news/NEWS-CARD-WORKFLOW.md) (21 Oct: Pattern B chosen, reviewer Dr Preetha OK; kpsc-news/SITE-PATTERN-CHOICE.md) (now: separate public section /kpsc-medical-officer, plan KPSC-NEWS-SEO-SOCIAL-PLAN-2026-10-20.md) Exams section on KPSC Practice Hub + nightly PSC-site scan (page-designer). Plan: KPSC-NEWS-PLAN-2026-10-19.md. Syllabus per category in kpsc-news/syllabus/ (Cat 34/2026 official copy saved 19 Oct)
 - [ ] H2 Joining page for lapsed subscribers (page-designer)
 - [ ] H3 Weekly exam-news mail to ALL ever-subscribed; lapsed = exam news + join link only, no practice details; active = inside weekly report
-- [ ] H4 Quote DB with per-user usage log (no repeats) + auto top-up when pool runs low
+- [~] H4 (26 Oct: quote DB + per-user no-repeat LIVE, backfilled from 19 Oct sends; auto top-up NOT built yet — pool 288) Quote DB with per-user usage log (no repeats) + auto top-up when pool runs low
 - [ ] H5 Weekly subscriber profiles (feeds mails + future AI coach)
-- [ ] H6 Qwen-written personalised mail wording (night window), with safety checks
+- [x] H6 (26 Oct: wr-coach.py, Sun 17:30 IST OpenClaw cron, number whitelist + content checks, template fallback; first round 5/8 personalised) Qwen-written personalised mail wording (night window), with safety checks
 - [ ] H7 Decide on TEST-AGENT-20261019 pending payment (approve to shoot approval flow, or reject)
 Subscriber-flow fixes (page-designer review, 4–5.5/10):
 - [x] H8 (live since 19 Oct; verified 23 Oct) Plans: false "Save ₹97" / "58% off" — longer plans cost MORE per month; fix prices or labels
@@ -88,13 +88,15 @@ Subscriber-flow fixes (page-designer review, 4–5.5/10):
 - [ ] H10 "Where am I?" tracker. Plan: kpsc-news/WHERE-AM-I-TRACKER-PLAN-2026-10-21.md (§11 access model, §12 fetch plan)
   - [x] Lookup engine + index + golden test (Dr Preetha 305/2019 + 092/2020): e2e 21/21
   - [x] Access tiers (free 1 check / Rs50 mo / Rs450 yr / free for QB subscribers), watches, alerts, delete, demand spike: e2e 19/19
-  - [x] Letter to KPSC drafted (mail@drpreetha.com Drafts) — Kiran to review + send
-  - [ ] Where-am-I page A + fixes (box on top, sample result, data-date line, impact strip)
+  - [x] Letter to KPSC SENT 22 Oct 16:47 UTC to kpsc.psc@kerala.gov.in (Hyperlinking Policy permission). Reply-watch cron 1858071e94ef every 30m — no reply, no bounce as of 26 Oct. KPSC-LETTER-SENT.json
+  - [~] Where-am-I page A: box on top LIVE, data-date line LIVE ("Based on PSC documents checked on <built_at>"), sample result LIVE 26 Oct (demo candidate, dashed box, figures read from the in-force list; never a real reg no). Nav link in the KPSC dropdown sitewide + home/news/features/practice. Remaining: impact strip
   - [ ] Payment plan (Rs50/mo UPI autopay, Rs450/yr) + QB-subscriber entitlement hook
-  - [ ] Nightly cron + instant fetch (Qwen finder) + adaptive refresh
+  - [~] Nightly cron LIVE (`0 18 * * *` = 23:30 IST, /root/kpsc-tracker/scripts/nightly.py, log /var/log/hermes-cron/kpsc-tracker.log): index rebuilt nightly, golden 21/21, upload OK. Instant fetch (Qwen finder) + adaptive refresh NOT exercised yet — `hot categories []` every run, no real demand
   - [ ] Privacy notice + consent + delete link; lawyer review
-  - [ ] QB hub footer: "reproduced under KPSC's copyright terms, with source acknowledged"
+  - [x] Copyright acknowledgement live on /where-am-i and sample-quiz.php footers
+  - [ ] Demand loop: 0 real user lookups to date (check_log = only uid 66 test + uid 24 demo; queue = 1 test req 093/2019 `no_ranked_list`). 26 Oct: sample result + sample-quiz.php link added to convert the ~9/week organic sessions
 - [ ] H11 Profile page: style select, generic placeholders
+- [x] H13 (26 Oct, LIVE automatic) Welcome mail for every new subscriber ~10 min after first approval: all Features-page items with GIF loops, growing list synced nightly from features.php, sent from progress@updates; Hub tile drpreetha-updates-mailbox. drpreetha/welcome-mail/README.md
 - [x] H12 (verified 23 Oct) Public subscribe.php: clipped "Best Value" badge, all buttons "Coming Soon"
 
 
@@ -105,3 +107,6 @@ Subscriber-flow fixes (page-designer review, 4–5.5/10):
 - [ ] I2 Medical Officer — Homoeo / ISM (Ayurveda)
 - [ ] I3 Assistant Professor posts, Medical Education
 - [ ] I4 Assistant Insurance Medical Officer (IMS/ESI)
+
+## Demo / test account (Kiran 2026-10-26)
+- itsmarket09@gmail.com = internal demo account for neko-preetha workflow recordings (new-user flows, Reels). EXCLUDED from subscriber mail (inform_subscribers OWNER_EMAILS) and weekly reports (live kpsc-cron/weekly-report.php, rollback .pre-itsmarket-20261026). command-hub 16c68786.
