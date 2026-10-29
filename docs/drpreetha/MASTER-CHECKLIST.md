@@ -68,6 +68,7 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [ ] A10 LCP 3.1s → <2.5s (performance 78/100)
 - [ ] C8 OPSC (Odisha) Medical Officer: we rank ~#7.5 with 0 clicks — decide: dedicated landing page or adjust sample-quiz title to stop mismatch
 - [ ] C9 Blog: add Article JSON-LD + real posts (currently thin)
+- [~] C11 (29 Oct) Google still says Athani: site audited clean (84 URLs), public backups/ folder removed, GSC reindex requested for /, /videos.php, /llms.txt. Pending: Azeezia profile end-date, Athani doctors page, LinkedIn
 - [ ] C10 contact.php gets 399 impr / 0.75% CTR / 7s — fix title+description for ENT patients or add clinic landing page
 
 ## H. Coach-mail system & subscriber flow (added 2026-10-19)
