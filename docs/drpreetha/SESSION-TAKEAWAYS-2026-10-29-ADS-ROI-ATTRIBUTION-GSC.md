@@ -25,6 +25,13 @@
 - GSC (URL-prefix property https://drpreetha.com/, kiranvk2011 = authuser 1, neko-preetha): Request indexing ACCEPTED for `/` (last crawl 28 Oct 22:57 IST), `/videos.php` (was never indexed — "discovered via sitemap"), `/llms.txt`.
 - Open: ask Azeezia to add "(May–Oct 2026)" to Athani line; ask Athani to remove her; update LinkedIn; thumbs-down feedback on the AI answer.
 
+## 5. Clean videos live
+- Homepage + videos.php swapped to dp-*-clean.mp4 (no Parabrahma logo/phone/name/spoken mention); note sentence removed. Rollback kpsc-cache/rollback/cleanvids-20261029-203506.
+
+## 6. Instagram links on video cards
+- Vertigo card → instagram.com/reel/De-8ynmj2AX/ (was Parabrahma FB). Adenoid + migraine Parabrahma YouTube links removed; IG links auto-added by one-shot crons 05ffa3e79a6e (30 Oct 11:00 IST) and 7d9280520d9e (2 Nov 11:00 IST) after the scheduled reels go live. Rollback kpsc-cache/rollback/igvertigo-*.
+- Graph API IG media read fails (#10 no permission) — use the neko browser on the profile.
+
 ## Pitfalls
 - GSC in neko-preetha renders mobile layout: the inspect bar is the search icon at (135,28); `/search-console/inspect?...&id=<url>` deep links 404 — use the bar. "REQUEST INDEXING" click must target the SPAN element's rect (fixed coords hit a sign-in link once).
 - `rsql.py` import needs `PYTHONPATH=drpreetha/weekly-insights` when run from a scratch script.
