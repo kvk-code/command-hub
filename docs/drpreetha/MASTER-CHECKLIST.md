@@ -41,7 +41,9 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [x] E0 Audit done: Google PMax ₹11.4k wasted (3-sec visits); FB ₹302 best (₹17/action)
 - [ ] E1 Rule: no Performance Max / Display ever; Search-only if Google
 - [ ] E2 Meta test ₹2–3k, Kerala MBBS doctors, → sample quiz, UTM'd, before 12 Nov
-- [ ] E3 Stop rule: pause if cost per signup > ₹150 after ₹1k
+- [~] E2a 28 Oct 23:20 IST: cat34 ad set A (opt PaymentPending custom conv, 2 events total, starved) PAUSED; new ad set A2 120250237764790716 opt LANDING_PAGE_VIEWS (pixel, 1d click), same targeting/₹300/day/end 11 Nov, EN+ML ads copied (same creatives). Meta forbids changing goal/attribution in place. Backup ads/adset-*-pre-lpv-*.json
+- [x] E3 (29 Oct) Stop rule LIVE: Hermes no-agent cron every 3h /root/.hermes/scripts/drpreetha-ads-stoprule.py — pauses ad set A2 if spend since 29 Oct 19:15 IST ≥ ₹1k and ₹/meta-signup > ₹150; silent otherwise
+- [x] E4 (29 Oct) First-touch attribution LIVE: _attrib.php (via config.php) sets 90-day cookie kp_src (UTM/fbclid/referrer/landing); createUser() saves it to users.signup_src. Rollback kpsc-cache/rollback/attrib-20261029-191526. Baseline: ₹749 spent 25–29 Oct vs 2 new payers (₹1,298) unattributable
 
 ## F. Content & social
 - [ ] F1 YouTube short per PYQ paper → link to page
