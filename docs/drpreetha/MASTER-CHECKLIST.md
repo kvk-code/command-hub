@@ -47,7 +47,7 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 
 ## F. Content & social
 - [ ] F1 YouTube short per PYQ paper → link to page
-- [ ] F2 Instagram reels from Dr Preetha's videos — schedule: drpreetha/instagram/SCHEDULE.md (12 posts Oct27–Nov7 09:30 IST)
+- [~] F2 Instagram reels from Dr Preetha's videos — schedule: drpreetha/instagram/SCHEDULE.md (12 posts Oct27–Nov7 09:30 IST). Site back-links live: vertigo reel De-8ynmj2AX (29 Oct), adenoid reel DfGrNOTgf6X (30 Oct) on / and /videos.php + VideoObject sameAs. Migraine reel pending.
 - [ ] F3 LinkedIn: deprioritise (641 impressions, ~0 signups); keep profile for credibility
 - [ ] F4 Testimonials from paying users on site
 
@@ -70,6 +70,8 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [ ] C9 Blog: add Article JSON-LD + real posts (currently thin)
 - [~] C11 (29 Oct) Google still says Athani: site audited clean (84 URLs), public backups/ folder removed, GSC reindex requested for /, /videos.php, /llms.txt. Pending: Azeezia profile end-date, Athani doctors page, LinkedIn
 - [ ] C10 contact.php gets 399 impr / 0.75% CTR / 7s — fix title+description for ENT patients or add clinic landing page
+- [ ] C12 (30 Oct audit) videos.php "Discovered – not indexed", 0 impr: body ≈ home #videos section. Needs 150–250 words unique Q&A/transcript per video, H1 with keywords, nav "Videos" → videos.php (not #videos), footer-links. Needs Kiran OK (content).
+- [x] C13 (30 Oct) Shipped: canonical/og:url "https://drpreetha.com/" (trailing slash), Physician JSON-LD telephone/image/address/sameAs (hospital + Instagram), VideoObject author + sameAs reel URLs. Rollback kpsc-cache/rollback/mmfseo-20261030-113803
 
 ## H. Coach-mail system & subscriber flow (added 2026-10-19)
 Done:
