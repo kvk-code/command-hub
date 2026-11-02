@@ -146,3 +146,37 @@ Companion: MASTER-CHECKLIST.md (actions). Sync: `bash drpreetha/sync.sh "msg"` �
 - Signals (GA4 23–29 Oct vs 16–22 Oct): users 545 vs 38, sessions 639 vs 70 — driven by Paid Social/meta 425 sessions (ad set A2). Organic google 97 (prev wk n/a in pull), chatgpt.com 28, accounts.google.com 40 (discount), Kochi 239 (includes own testing). Key events: start_trial 50, sign_up 24, payment_submitted 28, ads_conversion_PURCHASE 31, video_play 4. videos.php: 3 sessions (2 google-signin, 1 welcome_mail); instagram landing 1 (sample-quiz).
 - Pixel 23–29 Oct vs prev: PageView 1470/398, ViewContent 894/113, QuizQuestionAnswered 362/20, SampleQuizCompleted 31/2, PaymentPending 34/4.
 - GSC 28d (30 Sep–27 Oct vs prev): 106 clicks / 1,258 impr / pos 6.2 (prev 19 / 225 / 12.8). Top: PYQ hub 39, home 21, sample-quiz 11. Zero-click: contact.php 111 impr, features 75, "opsc medical officer free mock test" 25+9 impr, "dr preetha" 23 impr pos 22.7 (brand query not ranking — Athani/Azeezia confusion, C11). videos.php: 0 impressions.
+
+## 2026-11-01 ~23:20 IST — Question-bank protection live (King)
+- Uid 95 copied about 770/913 questions in 3 days, using rapid taps to reveal the key. Manual hold + mail at 21:57.
+- Shipped:
+  * watermark on question cards (name · last 4 phone · #uid · date);
+  * 150 new questions/day cap (revision of seen questions unlimited);
+  * auto-hold at 40 answers under 3 s within 1 h (SYSTEM_RAPID, mail, ⚡ alert to Telegram via the review cron);
+  * Terms "Suspension for abnormal usage or misuse" + Privacy purpose.
+- E2E on web (iPhone/desktop) + real APK on the emulator.
+- Details: SESSION-TAKEAWAYS-2026-11-01-QUESTION-BANK-PROTECTION.md; command-hub docs/drpreetha/bank-protect/.
+
+## 2026-11-02 ~00:30 IST — Clarity account-number tagging + PII leak fixed (King)
+- Athira (uid 95): 0 Clarity recordings across ~950 sessions. Most likely a tracker blocker; server logs remain the evidence.
+- LIVE: signed-in pages tag Clarity with `u<uid>` only (filter: Custom filters → Customised user ID).
+- Fixed a pre-existing leak: e-mail went to Clarity via the avatar seed and the title attribute, and the name via profile text and the watermark attribute. Now hashed or masked; the display is unchanged.
+- Privacy page updated.
+- E2E: web 10/10 + emulator APK.
+- Details: SESSION-TAKEAWAYS-2026-11-02-CLARITY-ID-PII-ATHIRA.md; command-hub docs/drpreetha/clarity-id/.
+
+## 2026-11-02 Weekly (last7 vs prev7)
+- Big Meta ad burst: GA4 users 1545 vs 87, Paid Social 1137 sessions (meta). Pixel ViewContent 2542 vs 157, PaymentPending 47 vs 4.
+- Funnel: ~1545 visitors -> plans.php 285pv -> select_item 166 -> begin_checkout 158 -> payment_submitted 48 -> approved 15. Biggest drop: checkout->submitted (158->48, ~70% lost).
+- Most-clicked plan: Monthly (77 clicks/69 checkouts) >> Exam Pass (17). DB: 15 monthly approved + 1 exam_pass = Rs 5185.
+- Signups 51 vs 6; 35 signed-up-never-paid; active subs 24; expiring in 14d: 5. Clarity 1536 sess, 142 dead-click sess, 120 quick-backs, 123 JS errors (webview postmessage).
+- Clarity prev7 unavailable (dashboard has no prev-period compare).
+
+## 2026-11-02 MakeMeFamous — migraine reel back-link + reindex (17:00 IST)
+- Migraine reel published @drpreetha.ms = /reel/DfOZkVPkrei/ (1 Nov, caption "തലയുടെ ഒരു വശത്ത്… മൈഗ്രേൻ", #Migraine). Added `<p class="vr-src">Also on Instagram</p>` to migraine card in index.php + videos.php (backup kpsc-cache/rollback/igmigraine-20261102-110705). Verified live, both end </html>.
+- Audit fix: migraine VideoObject lacked `sameAs` (vertigo/adenoid had it). Added sameAs reel URL in videos.php schema (backup igmigraine-sameas-20261102-114220). All 3 ENT VideoObjects now have sameAs. Mobile 390px card renders OK.
+- Crawler access: all 10 AI+search UAs 200 on / and /videos.php; key file + sitemap/llms/robots 200. IndexNow (api.indexnow.org+Bing+Yandex) 200. GSC sitemap resubmitted (0 warn/err). GSC Request Indexing done both URLs via raw CDP neko-preetha (/=on Google, /videos.php=not on Google yet — newer).
+- GSC 28d (10-05→11-01): 204 clicks / 1896 impr / CTR 10.8% / pos 5.9. Top queries all "assistant surgeon/medical officer previous questions" (CTR 21-50%). Top page /kpsc-medical-officer-previous-year-questions (95 clicks). "dr preetha" pos 21.5 (brand not ranking).
+- GA4 28d by channel: Paid Social 1200 sess / avgEng 15s (junk-level); Organic Search 280 sess / 125s; Referral 141 sess / 324s; AI Assistant 79 sess / 121s. Paid Social = 68% of sessions but shortest engagement.
+- Meta Pixel 28d (server events): QuizAnswered 10, PageView 8, ViewContent 5, SampleQuizCompleted 1 — server-side pixel under-firing vs browser GA4 (4682 page_view).
+- videos.php still "not on Google" (C12 open: needs unique 150-250 word Q&A/transcript per video; currently body ≈ home #videos).
