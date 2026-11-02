@@ -47,7 +47,7 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 
 ## F. Content & social
 - [ ] F1 YouTube short per PYQ paper → link to page
-- [~] F2 Instagram reels from Dr Preetha's videos — schedule: drpreetha/instagram/SCHEDULE.md (12 posts Oct27–Nov7 09:30 IST). Site back-links live: vertigo reel De-8ynmj2AX (29 Oct), adenoid reel DfGrNOTgf6X (30 Oct) on / and /videos.php + VideoObject sameAs. Migraine reel pending.
+- [~] F2 Instagram reels from Dr Preetha's videos — schedule: drpreetha/instagram/SCHEDULE.md (12 posts Oct27–Nov7 09:30 IST). Site back-links live: vertigo reel De-8ynmj2AX (29 Oct), adenoid reel DfGrNOTgf6X (30 Oct), migraine reel DfOZkVPkrei (1 Nov, published, linked 2 Nov) on / and /videos.php + VideoObject sameAs. All 3 ENT reels now back-linked.
 - [ ] F3 LinkedIn: deprioritise (641 impressions, ~0 signups); keep profile for credibility
 - [ ] F4 Testimonials from paying users on site
 
@@ -115,3 +115,10 @@ Subscriber-flow fixes (page-designer review, 4–5.5/10):
 
 ## Demo / test account (Kiran 2026-10-26)
 - itsmarket09@gmail.com = internal demo account for neko-preetha workflow recordings (new-user flows, Reels). EXCLUDED from subscriber mail (inform_subscribers OWNER_EMAILS) and weekly reports (live kpsc-cron/weekly-report.php, rollback .pre-itsmarket-20261026). command-hub 16c68786.
+
+- [x] E2b (30 Oct 23:00 IST): A2 swap — ML igwa ad 120250237773740716 PAUSED; new EN Riya-voice (OmniVoice clone, "Kerala PSC") feature tour ad 120250268745990716 ACTIVE (video 2465661377574348, creative 2431620110702235, utm_content=en-riya). Existing EN features ad untouched. A/B round ads-envo-20261030, Kiran picked B.
+
+## MMF /app follow-up — 2026-11-01 (Hermes)
+- Done: GSC submit, IndexNow (3 engines), schema validator, blind audit, img width/height + .journey img CSS fix (backup app.php.orig), uploaded, headless verify 390/1366 light+dark, linkcheck clean.
+- Signal (Matomo, 1 Nov): /app 9 visits + ?src=video 3 + ?src=video2 3; APK downloads 5 (31 Oct–1 Nov). Sample-quiz ad traffic bounces 77–81%.
+- Gap: /app has Matomo only, no GA4/Clarity/Pixel tag; app installs can't be attributed to ads.
