@@ -2,6 +2,7 @@
 
 > **SENDER RULE:** subscriber/bulk mail is sent From progress@updates.drpreetha.com (Reply-To mail@), never mail@. See INCIDENT-2026-10-23-MAIL-SENDER.md.
 Created 2026-10-17. Sources: growth-analysis-2026-10-17.md (§8–10), seo-geo-hitlist-2026-10-17.md.
+> **NOW (2 Nov):** IMMEDIATE-PRIORITIES-2026-11-02.md (P1–P8)
 Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran approves each section.
 
 ## A. Measurement & tracking (do first — everything else is judged by it)
@@ -122,3 +123,8 @@ Subscriber-flow fixes (page-designer review, 4–5.5/10):
 - Done: GSC submit, IndexNow (3 engines), schema validator, blind audit, img width/height + .journey img CSS fix (backup app.php.orig), uploaded, headless verify 390/1366 light+dark, linkcheck clean.
 - Signal (Matomo, 1 Nov): /app 9 visits + ?src=video 3 + ?src=video2 3; APK downloads 5 (31 Oct–1 Nov). Sample-quiz ad traffic bounces 77–81%.
 - Gap: /app has Matomo only, no GA4/Clarity/Pixel tag; app installs can't be attributed to ads.
+- [x] E2c (3 Nov, Kiran OK): cat34-page ads 0 signups/~110 LPV vs sample-quiz Riya 5 signups/2 payers → REACTIVATED Riya→sample-quiz 120250268745990716; PAUSED AI-fast+WDGW 120250309146900716; kept Riya→cat34 120250303379070716 as A/B until ~6 Nov.
+- [x] E2d (3 Nov, Kiran OK): no-compete split. A2 (₹300/d, cold) now EXCLUDES custom audience 120250314762380716 "site visitors 30d" (pixel); runs Riya→sample-quiz + Riya→cat34. NEW ad set A3 120250314760120716 (₹150/d, same targeting INCLUDING only that audience = warm retargeting) runs AI-fast+WDGW ad copy 120250314764860716 (Exam Pass ₹999). Backup ads/adset-*-pre-a3-*.json. Watch: audience ~20+ people → A3 may under-deliver.
+- [x] E2e (3 Nov ~15:15 IST, Kiran OK): 3 Nov ads gave 0 payers. Cause: "features IG→sample-quiz" (6/9 Meta payers in the last week) got almost no budget on 2 Nov, then was paused in the 3 Nov changes. REACTIVATED 120250237770450716; PAUSED Riya→cat34-page 120250303379070716 (0 signups). Re-check tomorrow evening by payer source (users.signup_src).
+- [x] H14 (3 Nov, Hermes) Admin Subscribers card: "WDGW tutor" strip with a credits ring (used of granted, same ledger as wdgw-chat.php: +100 per batch every 2 days, carry forward) + Details sheet (admin/wdgw-usage.php: ledger, time on trap questions, every tutor conversation, refused asks). Rollback kpsc-cache/rollback/wdgw-admin-20261103-165535. Src drpreetha/wdgw-admin/. Gap: WDGW page answers are not written to user_question_attempts, so "time on trap questions" stays empty unless the doctor met that question in practice.
+- [x] H15 (3 Nov, Hermes) WDGW time tracking LIVE: wdgw-time.php → ask.sqlite `tt` (pick = ms card shown→option, dwell = visible ms per visit, sendBeacon). Admin sheet shows To answer / On card / In AI / Asked + full tutor chat expanded. New Subscribers tab "Top AI users" (?filter=top_ai) ranks by credits used since 2 Nov. Rollback kpsc-cache/rollback/wdgw-time-20261103-171223. Note: uid 85 = itsmarket09 demo account (its off-topic asks were internal tests); uids 137/139 no longer in users table.
