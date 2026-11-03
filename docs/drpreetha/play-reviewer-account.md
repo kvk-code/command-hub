@@ -3,7 +3,7 @@
 Created 2026-11-03 for Google Play review of **Dr. Preetha PSC Practice** (`com.drpreetha.kpsc`).
 
 - **Email:** drpreetha.reviewer@gmail.com
-- **Password:** _(Kiran: tap ✏️ and type it here. Repo is private.)_
+- **Password:** Kapuma@23
 - **Name on account:** Preetha App Reviewer
 - **Birthday / gender (Google signup only):** 14 March 1992 · Rather not say
 - **Recovery email:** kiranvk2011@gmail.com
