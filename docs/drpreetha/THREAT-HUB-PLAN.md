@@ -101,7 +101,7 @@ Privacy: no answer text, no chat text in `events` (chat stays in ask.sqlite and 
 Auto level 3+ only after a sustained precision of ≥90% on labelled cases.
 
 ## 6. Phases (deploy order)
-- [ ] **P0 Setup**: Postgres db `tah`, FastAPI ingest on VPS (systemd), Caddy host + HMAC key in cred-broker, Hub tile. Rollback = stop the unit.
+- [ ] **P0 Setup** (see §12): Cloudflare Worker `api.drpreetha.com` + D1 + Queues; Oracle Free ARM for analysis; HMAC key in cred-broker; Hub tile.
 - [ ] **P1 Website stream**: `_tah.php` (`tah_emit($type,$props)`, non-blocking curl with a 300 ms timeout, file spool `kpsc-cache/tah-spool/` + cron flush). Hook into login, device slot, practice serve/answer, record-attempt, WDGW ask/time, payment submit/approve, admin actions. md5-guarded deploy with rollbacks under `kpsc-cache/rollback/tah-*`.
 - [ ] **P2 Current app stream (TWA)**: TWA = website, so P1 covers it; additionally tag `src=twa` + `build` from kp-app-pay.js and `app.launch` via app-build.php.
 - [ ] **P3 Backfill**: import 90 days from MySQL attempts, ask.sqlite, user_app_build, payments, mail pixels and Matomo (Reporting API `Live.getLastVisitsDetails` joined by userId). Then verify counts per source.
@@ -188,3 +188,21 @@ Native app phases (after TAH P0–P6):
 - [ ] N4 AI tutor (streamed), credits
 - [ ] N5 Telemetry `/v1/events` + integrity verdicts → TAH (= phase P8)
 - [ ] N6 Closed test on Play (reuse tester list + reviewer acct uid 150), then the TWA → native migration banner via MIN_BUILD (app-lockout runbook)
+
+## 12. Hosting decision v2 (2026-11-04): off the fleet VPS
+Reason: the fleet VPS has crashed before (tab bloat) and app traffic must not depend on it. Load estimate: about 300–700 users after UPSC, roughly 50–100k requests a day, which fits free tiers.
+- **API + event intake = Cloudflare Workers** (`api.drpreetha.com`), with D1 (events/profiles), Queues (event batching), and Turnstile + WAF + rate limits. Free plan: 100k requests a day. Cloudflare Startups $10k (applied 10 Oct; decision pending) covers growth. This **replaces FastAPI-on-VPS in §7/§8**: same endpoints, written in TypeScript (Hono), OpenAPI published so the Flutter client can still be generated.
+- **Analysis = Oracle Always Free ARM** (4 CPU/24 GB, its own machine): nightly features, PyOD, Qwen→Sonnet triage, drift. If it is down, the app keeps working; only alerts are delayed.
+- **Analytics stay as-is**: Matomo + GA4 + Clarity + Meta Pixel. **No PostHog** (Kiran 2026-11-04). The Matomo nightly import (P3) stays.
+- **Website stays PHP on cPanel**; it emits events to the Worker `/ingest` (HMAC).
+- Fleet VPS: nothing on the critical path.
+
+## 13. Question bank on AWS Lambda: how it fits
+- Lambda + its store stay the **source of truth** for questions and the answer key. No migration needed.
+- **Only servers call Lambda**: the Worker and the PHP site, using a secret API key / IAM-signed request held server-side. Close the Oct-10 hole A for good: no `API_BASE_URL`/Cognito `ID_TOKEN` in any page or app; block direct public calls (API Gateway key + usage plan, or a resource policy).
+- Flow (app): Flutter → Worker `/v1/practice/.../next` → Worker checks entitlement, quota and risk level → calls Lambda for **one question without the answer** → logs `practice.serve` → returns it. On `/answer` the Worker asks Lambda (or a server-only key cache) whether it is correct, then logs `practice.answer` with server-measured ms.
+- Website: PHP does the same server-to-server calls (it already proxies via next-batch.php; cap batch ≤20, strip answers per hole B/E).
+- Caching: question text may be cached in Workers KV (short TTL); **the answer key is never cached at the edge or sent to the client before an attempt**.
+- The risk level from TAH feeds back into the Worker: level 2 lowers the per-user quota, level 4 means the entitlement is denied, so a harvesting account is throttled at the gate before it reaches Lambda.
+- Cost: Lambda at this volume is pennies; AWS Activate ($5k) is optional.
+- Later (optional): mirror the bank into D1 to drop the AWS hop. Only if latency or cost justifies it.
