@@ -206,3 +206,37 @@ Reason: the fleet VPS has crashed before (tab bloat) and app traffic must not de
 - The risk level from TAH feeds back into the Worker: level 2 lowers the per-user quota, level 4 means the entitlement is denied, so a harvesting account is throttled at the gate before it reaches Lambda.
 - Cost: Lambda at this volume is pennies; AWS Activate ($5k) is optional.
 - Later (optional): mirror the bank into D1 to drop the AWS hop. Only if latency or cost justifies it.
+
+## 14. Multi-model review (2026-11-04) — accepted changes (v3 direction)
+Reviewers: GPT-6.1 Sol, Gemini 4 Argon, Grok 4.7, Claude Opus 5.5 (full text: review-2026-11-04-*.md). §14 overrides §2/§8/§9/§12 where they conflict.
+
+**Kiran decision: NO Razorpay/Cashfree.** Keep screenshot + UTR manual approval. Harden it instead:
+- At upload: perceptual hash (imagehash/PDQ) + vision model extracts UTR/amount/date/payee and flags edit artefacts → shown on the admin approval card. Human still approves.
+- R9 extended: duplicate UTR, duplicate image hash, amount/payee mismatch.
+
+**P0 — Lock the gate (before any TAH work)**
+- [ ] Verify/close Oct-10 hole A: no API_BASE_URL / Cognito token in any page.
+- [ ] Lambda reachable only by IAM-signed calls (Function URL AWS_IAM, aws4fetch) from Worker + PHP; retire public API GW route. Reserved concurrency + AWS budget alarm.
+- [ ] Lambda memory 3008 → 512 MB–1 GB, arm64; benchmark latency.
+- [ ] Web batches 20 → 1–5, answers stripped; answer check server-side.
+- [ ] Per-user serve quotas (Durable Object / rate-limit binding).
+
+**P0.5 — Entitlement sync**
+- [ ] PHP pushes signed entitlement.change (approve/suspend/reject) → Worker KV/D1. App fails closed. Nightly reconcile. Worker never connects to MySQL.
+
+**Architecture corrections**
+- Workers **Paid** ($5/mo) — free limits exceeded at 700 users.
+- D1 = operational state only (entitlement, devices, profiles, cases, 7-day hot events). Raw events: Queues → R2 JSONL (or Analytics Engine). Analysis: DuckDB over R2 on Oracle ARM (disposable, provisioned from git; GitHub Actions as fallback).
+- Lambda KEPT behind Worker (Gemini dissent noted: inline bank on CF — rejected; answer keys stay off the edge).
+- Worker API: Hono + @hono/zod-openapi → Dart client generation.
+- Play Integrity standard requests with requestHash; keystore-bound refresh tokens.
+
+**Detection simplifications**
+- Drop R3 (impossible travel; CGNAT). R1 and R8 = analyst hints only.
+- Drop for now: PyOD ensembles, drift job, Qwen→Sonnet judge chain, tirreno (P7).
+- One LLM summariser (Haiku/Sonnet, structured JSON, features only, no raw user text — prompt-injection surface). Actions ≥ level 2 stay manual.
+- NEW: canary/honeytoken question variants per user (option order / wording / fingerprint) + periodic Telegram/Google scan for leaked text → traces to uid.
+
+**Compliance**
+- DPDP Act 2023 + Rules 2025: notice, purpose, retention defined and published BEFORE P1 profiling.
+- Play: re-check India billing/steering policy for "Renew on drpreetha.com" text before submit; keep it static and non-clickable.
