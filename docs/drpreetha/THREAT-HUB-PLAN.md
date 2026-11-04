@@ -166,4 +166,25 @@ Play billing note: Google requires Play Billing for digital content bought *insi
 2. Level-2 automatic soft actions allowed (credit throttle / re-login)?
 3. Include tirreno trial (P7) or skip?
 4. Privacy page line "usage is monitored for fair use and security" before P1.
-5. Native framework: Flutter (recommended: one UI codebase, good offline, simple secure-storage plugins) vs React Native.
+5. ~~Native framework~~ DECIDED 2026-11-04: **Flutter** (see §11).
+
+## 11. Future plan: native app = Flutter (decided 2026-11-04)
+Why Flutter over React Native:
+- Security plugins are mature: Play Integrity, flutter_secure_storage (Keystore/Keychain device key), screenshot block (FLAG_SECURE), local_auth (biometric).
+- Release builds are compiled AOT to native code; RN ships a JS bundle that is easy to unpack. This is not a real protection: the bank stays safe because the server serves one question at a time and never sends the answer key.
+- It renders its own UI, so practice screens look identical on low-end Android and iPhone.
+- It comes with one official toolkit (routing, testing, devtools), so fewer third-party dependencies to maintain for a solo + AI team.
+- Good offline story: cached questions, a queued `/v1/events` batch, accurate timers.
+- Dart client generated from the FastAPI OpenAPI spec (openapi-generator dart-dio).
+Trade-offs accepted: learning Dart; an APK about 5–10 MB larger; no free over-the-air updates (Shorebird is paid), so screen changes need a Play release. Server-driven `/v1/config` flags + kill switch cover urgent changes.
+When we'd revisit: a React/JS developer joins, or OTA becomes critical.
+
+Suggested Flutter stack: Riverpod (state), go_router, dio + generated API client, flutter_secure_storage, play_integrity (Android) / App Attest (iOS later), drift (SQLite) for offline cache + event queue, sentry_flutter for crashes (events also mirrored to TAH).
+
+Native app phases (after TAH P0–P6):
+- [ ] N1 FastAPI `api.drpreetha.com` v1 (§7) against the shared MySQL, OpenAPI published
+- [ ] N2 Flutter skeleton: Google sign-in → `/v1/auth/google` with an integrity token → entitlement screen ("Renew on drpreetha.com", no price, no buy button)
+- [ ] N3 Practice flow (one question at a time, server-timed), progress, bookmarks
+- [ ] N4 AI tutor (streamed), credits
+- [ ] N5 Telemetry `/v1/events` + integrity verdicts → TAH (= phase P8)
+- [ ] N6 Closed test on Play (reuse tester list + reviewer acct uid 150), then the TWA → native migration banner via MIN_BUILD (app-lockout runbook)
