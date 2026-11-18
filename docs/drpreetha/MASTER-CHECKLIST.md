@@ -27,13 +27,13 @@ Status: [ ] todo · [~] in progress · [x] done. Work one item at a time; Kiran 
 - [x] C1 Search Console: sitemap.php submitted+read OK, 20/24 pages indexed (rest intentional). Optional: /sitemap.xml alias
 - [ ] C2 Syllabus & exam-pattern 2026 page
 - [ ] C3 Cat 34/2026 (exam 12 Nov) "what to study" page with subject weightage from 913 Qs
-- [ ] C4 Hub + paper pages: answer-first summary, FAQ + FAQPage schema, last-updated, reviewer byline, official source links
+- [x] C4 Hub + paper pages: answer-first summary, FAQ + FAQPage schema, last-updated, reviewer byline, official source links
 - [ ] C5 Subject-wise PYQ pages (Medicine, Surgery, OBG, Paeds, PSM, …)
 - [ ] C6 Printable PDF per paper
 - [ ] C7 Track 10 target queries weekly
 
 ## D. AI search optimisation / GEO (expander: seo-geo-hitlist §8–10)
-- [ ] D1 Expand llms.txt + add llms-full.txt
+- [x] D1 Expand llms.txt + add llms-full.txt
 - [ ] D2 Unique statistics + citations on every key page (Princeton GEO tactics)
 - [ ] D3 Off-site mentions: Quora, Reddit r/KeralaPSC, Telegram channels
 - [ ] D4 Weekly check: ChatGPT / Perplexity / Gemini / Google AI Mode answer for target queries
@@ -128,3 +128,32 @@ Subscriber-flow fixes (page-designer review, 4–5.5/10):
 - [x] E2e (3 Nov ~15:15 IST, Kiran OK): 3 Nov ads gave 0 payers. Cause: "features IG→sample-quiz" (6/9 Meta payers in the last week) got almost no budget on 2 Nov, then was paused in the 3 Nov changes. REACTIVATED 120250237770450716; PAUSED Riya→cat34-page 120250303379070716 (0 signups). Re-check tomorrow evening by payer source (users.signup_src).
 - [x] H14 (3 Nov, Hermes) Admin Subscribers card: "WDGW tutor" strip with a credits ring (used of granted, same ledger as wdgw-chat.php: +100 per batch every 2 days, carry forward) + Details sheet (admin/wdgw-usage.php: ledger, time on trap questions, every tutor conversation, refused asks). Rollback kpsc-cache/rollback/wdgw-admin-20261103-165535. Src drpreetha/wdgw-admin/. Gap: WDGW page answers are not written to user_question_attempts, so "time on trap questions" stays empty unless the doctor met that question in practice.
 - [x] H15 (3 Nov, Hermes) WDGW time tracking LIVE: wdgw-time.php → ask.sqlite `tt` (pick = ms card shown→option, dwell = visible ms per visit, sendBeacon). Admin sheet shows To answer / On card / In AI / Asked + full tutor chat expanded. New Subscribers tab "Top AI users" (?filter=top_ai) ranks by credits used since 2 Nov. Rollback kpsc-cache/rollback/wdgw-time-20261103-171223. Note: uid 85 = itsmarket09 demo account (its off-topic asks were internal tests); uids 137/139 no longer in users table.
+- [x] E2f (3 Nov late, Kiran OK): ad analysis since 29 Oct: ₹1,690 spend → 25 meta signups (₹68), 10 payers ₹2,990 (₹169/payer, ~1.8x). Features IG→sample-quiz 7 payers; Riya→sample-quiz 3; all cat34-page ads 0 signups; A3 warm ₹193/561 imp/0 signups. A3 120250314760120716 PAUSED; A2 budget ₹300→₹450/day (ends 11 Nov). Backup ads/adsets-pre-a3pause-*.json
+
+- [x] **E2g (2026-11-04)** Google Search campaign "KPSC Search - exact (test)" LIVE, id 24433646815, acct 144-267-7143. ₹200/day, Max clicks cap ₹40, Search only (no partners/display), India presence-only, AI Max/text-custom/URL-expansion OFF, auto assets off. 10 exact/phrase kws (kerala psc assistant surgeon etc). LP /sample-quiz.php + suffix utm_source=google&utm_medium=cpc&utm_campaign=kpsc_search. 10 headlines/2 desc. Ends 2026-11-11. Old PMax (Fifty Flash/Campaign #1/Subscription Tracker) remain paused/draft. TODO: Google Ads conversion (sign_up) + GSTIN.
+
+- [~] **C14 (2026-11-04)** Google Business Profile CREATED (unverified) in neko-preetha, owner mspreethadr@gmail.com: "Dr. Preetha M S", ENT Specialist, Azeezia Health City, Erattakulam PO, Alathur 678682, 04922 351111, drpreetha.com, Mon–Sat 9:00–16:30, description (no URL; Google rejects URLs). Location id 03763399837277852266. Only verification option = VIDEO (onsite by Kiran, via Google Maps/Business app as mspreethadr). Then: photos, sameAs in Physician JSON-LD, ask Azeezia to fix 8:30→9:00.
+- [x] **APP-LOCK (2026-11-04)** Play v5 (vc5, startUrl `?src=twa&b=play5`) approved 11:32 IST on closed track. Old website APK (no `b=play5`, remembered in localStorage kp_build) → 11:53 IST switched back to dismissible "Update to the latest version" banner (Update → Play app page, market:// + web fallback; tester join link) because Play v4 installs looked stuck under the lock (kp-app-pay.js v6, MODE banner; rollback apkbanner-20261104-115331). Emulator E2E flow `apklock` in drpreetha-android. Paid users 33 vs Play list 32: only test/reviewer accounts missing. Rollback kpsc-cache/rollback/apklock-on-20261104-114610 (and apklock-20261104-102106). Known: right after a Play update a warm Chrome tab keeps the old URL → lock tells user to close & reopen app. TODO: versionName still 1.0.2.
+- [x] APP-LOCK v2 (4 Nov 12:00 IST): every app launch re-marks build (app-welcome.php → kpsc-practice.php?kb=playN|old; launch w/o marker clears kp_build). Old builds (website APK + Play v4) get full-screen "Update to the latest version" lock, only exit = Update (market:// + web) / Join tester. kp-app-pay.js v9. Rollback apklock2-20261104-115937.
+- [x] APP-LOCK v3 (12:34 IST): MIN_BUILD in kp-app-pay.js v11. **Next version: drpreetha/app-lockout/RUNBOOK-NEXT-VERSION.md, then `bump-min-build.py N`.**
+- [x] ADMIN bank progress (4 Nov 19:00 IST): dashboard panel "📚 Question bank progress", subscribers sorted by % of the 913-question bank answered, misuse flags fast/burst/guess. `drpreetha/admin-bank-progress/`.
+- [~] **Play closed test (4 Nov)**: ≥12 testers opted-in requirement COMPLETED; 14-day clock running → apply for production ~18 Nov. Next app on this personal account needs its own 12×14 test (org account w/ D-U-N-S exempt).
+
+- 2026-11-10 D1+C4 done (geo-d1c4/): _faq.php shared FAQ+FAQPage on 82/93 sitemap URLs (all KPSC/UPSC paper+category pages, cat-34, home); llms.txt UPSC section regenerated from data + llms-full.txt (24.8KB, .htaccess allow); IndexNow 95 URLs. Rollback: kpsc-cache/rollback/geo-d1c4-20261110-geo/. Generators: geo-d1c4/new/gen-llms-*.php — rerun when papers change.
+- 2026-11-10 remaining steps: GSC sitemap resubmitted, Brave 8/8 accepted, crawler UA matrix 200 for 14 AI/search bots (Bytespider 403 by design), E2E AI-agent test 4 models (Claude Sonnet, GPT-6.1, Gemini 4, Grok 4.7) answered 5/5 factual questions correctly from live pages.
+- 2026-11-10 step 2: schema.org validator 0 errors on 6 samples (fixed home Physician medicalSpecialty enum); FAQ added to sample-quiz + upsc-sample (84/93); blind Gemini audit in geo-d1c4/blind-audit-20261110.txt, fixed 24/25 subjects mismatch + radiogroup label. Open: defer kp-app-pay.js, nav dropdown <button>, paywall isAccessibleForFree:false on paper pages, ISO dates, Quiz hasPart, title length on cat-34.
+
+### 2026-11-10 paysafe + nav + e2e
+- v7.0.8 (vc20, MIN_VC=20) is native Flutter, no WebView, never loads kp-app-pay.js. Do NOT defer kp-app-pay.js (old TWA flash risk).
+- app-bridge.php: br_paysafe() strips plans/subscribe/pay/UPI routes from home/me/config/notices/page payloads. Unit-tested live. Backup kpsc-cache/rollback/paysafe-20261110/.
+- Nav dropdowns: aria-expanded/button role on _pyq-layout + index etc. md5 ok, 93/93 pages 200.
+- Emulator v708 run 42670172089: 25/28 pass. Fails = test-account state (unlock card, Rekha id 85 already has Mock 5 attempt) + weekly push notification (also failed in baseline run). Fewer fails than baseline run 42590162963 (13).
+- iPhone web: nav, FAQ, prices OK; TWA mode guard=2 hides prices/plan links on all pages.
+- 2026-11-10 audit 4-6 live (rollback kpsc-cache/rollback/geo-step3-20261110): KPSC paper dates "1 Dec 2025" + <time datetime>; Cat34 title 122→~85 chars; sample-quiz Quiz schema hasPart = 10 question stems (no answers). Item 3 paywall markup SKIPPED (no hidden paid content in pages). Deploy dir is /home/revirnmt/drpreetha.com (NOT public_html; stray copies removed).
+
+- [ ] **App 7.0.9 (build 21):** running feedback banner on Home + "Share your feedback" button (spec native-app/V709-FEATURES.md, mock V709-feedback-banner-mock.png). After 12 Nov.
+- [ ] **App 7.0.9 UI kit:** 15 new server-driven card types + hidden /ui-kit test page (native-app/V709-UI-KIT.md). Tool: native-app/homecards.py.
+
+## H. Medical Education faculty jobs page (2026-11-18)
+- [x] H1 /kpsc-medical-education-jobs live on shared layout, crawler files + IndexNow/GSC/Brave done, .php 301
+- [ ] H2 Add Cat 166/167 cards after reading PDFs; hub item anchors; check GSC for 'assistant professor' queries in 2 weeks
